@@ -38,7 +38,8 @@ class Graph:
         
         def get_adjacent_nodes(self):
             '''Return the names of all nodes connected to the edge'''
-            return list(self._edges.keys())
+            return list(self._edges.keys())        
+
 
 
     class Edge:
@@ -116,6 +117,10 @@ class Graph:
             self._nodes[nodeName] = self.Node(nodeName)
         return self._nodes[nodeName]
 
+    def get_node(self, nodeName):
+        '''Retrieves the node object with a specified name in a graph'''
+        assert nodeName in self._nodes.keys(), "Node does not exist in graph"
+        return self._nodes[nodeName]
 
     def add_edge(self, node1, node2, weight):
         '''Creates a new edge if it does not already exist and adds it to the graph.
@@ -138,6 +143,12 @@ class Graph:
             self._edges[new_edge].weight = new_edge.weight
             self._nodes[node1.name]._edges[node2] = new_edge.weight
             self._nodes[node2.name]._edges[node1] = new_edge.weight
+
+    def get_edge(self, node1, node2):
+        '''Retrieves the edge object with a specified nodes in a graph'''
+        lookup_edge = self.Edge(node1, node2, 1)
+        assert lookup_edge in self._edges.keys(), "Edge does not exist in graph"
+        return self._edges[lookup_edge]
 
     def adjacent(self, node1, node2):
         '''Checks whether two nodes share an edge'''
