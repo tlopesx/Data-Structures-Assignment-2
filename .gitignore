@@ -1,5 +1,9 @@
 .DS_Store
 .idea
+<<<<<<< HEAD
 comp20230-Lab6-Sorting-solutions.ipynb
 desktop.ini
 **.pyc
+=======
+__pycache__
+>>>>>>> b9f15d847a994d961737e21074e66cf99492b069
